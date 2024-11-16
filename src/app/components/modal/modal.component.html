@@ -1,0 +1,64 @@
+<h1 mat-dialog-title>{{ sugestao.titulo }}</h1>
+
+<mat-dialog-content>
+  <p>
+    {{ sugestao.descricao }}
+  </p>
+  <div>
+    <span>Criado em {{ sugestao.dataEnvio | date : "dd/MM/yyyy" }}</span>
+    -
+    <span
+      >Atualizado em {{ sugestao.dataAtualizacao | date : "dd/MM/yyyy" }}</span
+    >
+  </div>
+
+  <h2>Comentários</h2>
+
+  <form [formGroup]="comentarioForm" (ngSubmit)="enviarComentario()">
+    <mat-form-field class="full-width">
+      <textarea
+        matInput
+        placeholder="Escreva seu comentário"
+        formControlName="texto"
+        minlength="20"
+      ></textarea>
+      <mat-hint
+        align="end"
+        *ngIf="comentarioForm.get('texto')?.value?.length < 20"
+        >Mínimo 20 caracteres</mat-hint
+      >
+    </mat-form-field>
+    <div>
+      <button
+        mat-flat-button
+        type="button"
+        (click)="cancelarComentario()"
+        [disabled]="comentarioForm.invalid"
+      >
+        Cancelar
+      </button>
+      <button mat-flat-button type="submit" [disabled]="comentarioForm.invalid">
+        Salvar comentário
+      </button>
+    </div>
+  </form>
+
+  <h2>Comentários anteriores</h2>
+
+  <ul *ngIf="sugestao.comentarios.length > 0; else semComentarios">
+    <li *ngFor="let comentario of sugestao.comentarios">
+      {{ comentario.texto }}
+      <span
+        ><i>{{ comentario.dataEnvio | date : "dd/MM/yyyy" }}</i></span
+      >
+    </li>
+  </ul>
+
+  <ng-template #semComentarios>
+    <p>Nenhum comentário anterior.</p>
+  </ng-template>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="fecharModal()">Fechar</button>
+</mat-dialog-actions>

@@ -1,0 +1,42 @@
+main {
+  max-width: 1200px;
+  width: 100%;
+  min-height: calc(100vh - 150px);
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  fieldset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    border: 2px solid #ccc;
+    padding: 20px;
+
+    legend {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 0 10px;
+    }
+
+    input {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 10px 16px;
+      min-width: 350px;
+      width: 90%;
+    }
+  }
+
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 32px;
+  }
+}

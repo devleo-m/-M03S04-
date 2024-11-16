@@ -1,0 +1,14 @@
+<div class="card" [id]="[elemento?.id]">
+  <h2>{{ elemento?.titulo }}</h2>
+  <p>{{ elemento?.descricao }}</p>
+  <div>
+    <span
+      >Criado em <i>{{ elemento?.dataEnvio | date : "dd/MM/yyyy" }}</i></span
+    >
+    -
+    <span
+      >Atualizado em
+      <i>{{ elemento?.dataAtualizacao | date : "dd/MM/yyyy" }}</i></span
+    >
+  </div>
+</div>

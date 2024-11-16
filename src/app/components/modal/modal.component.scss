@@ -1,0 +1,46 @@
+h1 {
+  margin-bottom: 20px;
+  background: #e0e2ec;
+}
+
+mat-dialog-content {
+  div {
+    margin: 4px 0 20px;
+    span {
+      font-size: 10px;
+    }
+  }
+  h2 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  .mat-mdc-form-field-infix {
+    display: block;
+    width: 100%;
+  }
+
+  ul {
+    padding: 0 20px;
+
+    li {
+      margin-bottom: 4px;
+
+      span {
+        font-size: 10px;
+      }
+    }
+  }
+}

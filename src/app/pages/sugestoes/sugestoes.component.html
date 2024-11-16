@@ -1,0 +1,24 @@
+<app-header />
+<main>
+  <fieldset>
+    <legend>Buscar sugestões</legend>
+    <input
+      type="text"
+      id="search"
+      name="search"
+      placeholder="Buscar por título"
+      [(ngModel)]="textoPesquisa"
+    />
+    <button mat-flat-button type="button" (click)="search()">Pesquisar</button>
+  </fieldset>
+
+  <section>
+    @if (listaSugestoes.length > 0) { @for (sugestao of listaSugestoes; track
+    sugestao.id) {
+    <app-card [elemento]="sugestao" (click)="openModal(sugestao.id)" />
+    } } @else {
+    <p>Nenhuma sugestão.</p>
+    }
+  </section>
+</main>
+<app-footer />
